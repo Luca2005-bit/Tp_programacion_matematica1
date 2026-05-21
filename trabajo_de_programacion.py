@@ -1,21 +1,31 @@
+# =========================
+# VARIABLE MENU
+# =========================
+
 opcion = 0
+
+# =========================
+# MENU PRINCIPAL
+# =========================
 
 while opcion != 4:
 
-    print("\n======================")
-    print("        MENU")
-    print("======================")
-    print("1 - Opción 1")
-    print("2 - Opción 2")
-    print("3 - Opción 3")
+    print("\n========================")
+    print("TRABAJO PRACTICO")
+    print("========================")
+
+    print("1 - Consigna 1")
+    print("2 - Consigna 2")
+    print("3 - Consigna 3")
     print("4 - Salir")
 
-    opcion = int(input("Elegí una opción: "))
+    opcion = int(input("Seleccione una opcion: "))
+
+    # =====================================================
+    # CONSIGNA 1
+    # =====================================================
 
     if opcion == 1:
-        print("\nEjecutando opción 1...\n")
-        
-         if opcion == 1:
 
         A = [101, 102, 103, 104, 105, 106]
         B = [104, 105, 106, 107, 108]
@@ -63,10 +73,13 @@ while opcion != 4:
         print("\nUsuarios no criticos:")
         print(no_criticos)
 
+    # =====================================================
+    # CONSIGNA 2
+    # =====================================================
+
     elif opcion == 2:
-        print("\nEjecutando opción 2...\n")
-        
-         import matplotlib.pyplot as plt
+
+        import matplotlib.pyplot as plt
 
         # Funciones
         def A(x):
@@ -136,9 +149,12 @@ while opcion != 4:
         print("\nPlan mas barato para x=10:")
         print(plan_mas_barato(10))
 
+    # =====================================================
+    # CONSIGNA 3
+    # =====================================================
+
     elif opcion == 3:
-        print("\nEjecutando opción 3...\n")
-        
+
         # MATRICES
 
         M = [
@@ -255,9 +271,18 @@ while opcion != 4:
         else:
             print("La matriz NO es invertible")
 
+    # =====================================================
+    # SALIR
+    # =====================================================
 
     elif opcion == 4:
+
         print("\nSaliendo del programa...")
 
+    # =====================================================
+    # ERROR
+    # =====================================================
+
     else:
-        print("\nOpción inválida, intentá de nuevo.")
+
+        print("\nOpcion incorrecta")
