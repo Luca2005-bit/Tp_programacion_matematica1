@@ -15,7 +15,53 @@ while opcion != 4:
     if opcion == 1:
         print("\nEjecutando opción 1...\n")
         
-        # PEGÁ TU CÓDIGO ACÁ
+         if opcion == 1:
+
+        A = [101, 102, 103, 104, 105, 106]
+        B = [104, 105, 106, 107, 108]
+        C = [102, 105, 109]
+
+        # Funcion logica
+        def usuario_critico(usuario):
+
+            p = usuario in A
+            q = usuario in B
+            r = usuario in C
+
+            return (p or q) and r
+
+        # Lista de usuarios sin repetir
+        usuarios = []
+
+        for x in A:
+            if x not in usuarios:
+                usuarios.append(x)
+
+        for x in B:
+            if x not in usuarios:
+                usuarios.append(x)
+
+        for x in C:
+            if x not in usuarios:
+                usuarios.append(x)
+
+        # Clasificacion
+        criticos = []
+        no_criticos = []
+
+        for u in usuarios:
+
+            if usuario_critico(u):
+                criticos.append(u)
+
+            else:
+                no_criticos.append(u)
+
+        print("\nUsuarios criticos:")
+        print(criticos)
+
+        print("\nUsuarios no criticos:")
+        print(no_criticos)
 
     elif opcion == 2:
         print("\nEjecutando opción 2...\n")
