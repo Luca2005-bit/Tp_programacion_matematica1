@@ -66,7 +66,75 @@ while opcion != 4:
     elif opcion == 2:
         print("\nEjecutando opción 2...\n")
         
-        # PEGÁ TU CÓDIGO ACÁ
+         import matplotlib.pyplot as plt
+
+        # Funciones
+        def A(x):
+            return 40 * x + 200
+
+        def B(x):
+            return 70 * x + 50
+
+        def C(x):
+            return -2 * x**2 + 80 * x + 100
+
+        # Valores de x
+        x = list(range(0, 51))
+
+        # Listas de y
+        yA = []
+        yB = []
+        yC = []
+
+        for i in x:
+            yA.append(A(i))
+            yB.append(B(i))
+            yC.append(C(i))
+
+        # Graficar
+        plt.plot(x, yA, label="A(x)")
+        plt.plot(x, yB, label="B(x)")
+        plt.plot(x, yC, label="C(x)")
+
+        plt.xlabel("Horas")
+        plt.ylabel("Costo")
+        plt.title("Planes de contratacion")
+
+        plt.legend()
+        plt.grid()
+
+        plt.show()
+
+        # Evaluar funciones
+        valores = [5, 10, 20, 30, 40]
+
+        for v in valores:
+
+            print("\nx =", v)
+            print("A =", A(v))
+            print("B =", B(v))
+            print("C =", C(v))
+
+        # Plan mas barato
+        def plan_mas_barato(x):
+
+            a = A(x)
+            b = B(x)
+            c = C(x)
+
+            menor = min(a, b, c)
+
+            if menor == a:
+                return "Plan A"
+
+            elif menor == b:
+                return "Plan B"
+
+            else:
+                return "Plan C"
+
+        print("\nPlan mas barato para x=10:")
+        print(plan_mas_barato(10))
 
     elif opcion == 3:
         print("\nEjecutando opción 3...\n")
