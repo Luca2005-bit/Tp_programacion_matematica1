@@ -60,7 +60,6 @@ while opcion != 4:
 
             if usuario_critico(u):
                 criticos.append(u)
-
             else:
                 no_criticos.append(u)
 
@@ -70,6 +69,7 @@ while opcion != 4:
         print("\nUsuarios no criticos:")
         print(no_criticos)
 
+
     # =====================================================
     # CONSIGNA 2
     # =====================================================
@@ -77,8 +77,6 @@ while opcion != 4:
     elif opcion == 2:
 
         import matplotlib.pyplot as plt
-
-        # FUNCIONES
 
         def A(x):
             return 40 * x + 200
@@ -89,11 +87,7 @@ while opcion != 4:
         def C(x):
             return -2 * x**2 + 80 * x + 100
 
-        # VALORES DE X
-
         x = list(range(0, 51))
-
-        # LISTAS DE Y
 
         yA = []
         yB = []
@@ -103,8 +97,6 @@ while opcion != 4:
             yA.append(A(i))
             yB.append(B(i))
             yC.append(C(i))
-
-        # GRAFICO
 
         plt.plot(x, yA, label="A(x)")
         plt.plot(x, yB, label="B(x)")
@@ -116,21 +108,15 @@ while opcion != 4:
 
         plt.legend()
         plt.grid()
-
         plt.show()
-
-        # EVALUAR FUNCIONES
 
         valores = [0, 5, 10, 15, 20, 25, 30, 40, 50]
 
         for v in valores:
-
             print("\nx =", v)
             print("A =", A(v))
             print("B =", B(v))
             print("C =", C(v))
-
-        # PLAN MAS BARATO
 
         def plan_mas_barato(x):
 
@@ -138,14 +124,17 @@ while opcion != 4:
             b = B(x)
             c = C(x)
 
-            menor = min(a, b, c)
+            menor = a
+
+            if b < menor:
+                menor = b
+            if c < menor:
+                menor = c
 
             if menor == a:
                 return "Plan A"
-
             elif menor == b:
                 return "Plan B"
-
             else:
                 return "Plan C"
 
@@ -154,30 +143,6 @@ while opcion != 4:
         for i in valores:
             print("x =", i, "->", plan_mas_barato(i))
 
-        # INTERSECCION
-
-        print("\nInterseccion entre A y B:")
-        print("(5 , 400)")
-
-        # VERTICE
-
-        print("\nVertice de C:")
-        print("(20 , 900)")
-
-        # RAICES
-
-        print("\nRaices de C:")
-        print("x1 = -1.2")
-        print("x2 = 41.2")
-
-        # C NEGATIVA
-
-        print("\nValores donde C es negativa:")
-
-        for i in range(0, 51):
-
-            if C(i) < 0:
-                print("x =", i)
 
     # =====================================================
     # CONSIGNA 3
@@ -213,8 +178,8 @@ while opcion != 4:
         else:
             print("No se puede realizar el producto M * C")
 
-        # PROMEDIO POR FUNCION
 
+        # PROMEDIO POR FUNCION
         print("\nPROMEDIO POR FUNCION")
 
         for i in range(filas_M):
@@ -222,14 +187,27 @@ while opcion != 4:
             suma = 0
 
             for j in range(columnas_M):
-                suma = suma + M[i][j]
+                suma += M[i][j]
 
             promedio = suma / columnas_M
-
             print("Funcion", i + 1, ":", promedio)
 
-        # MATRIZ TRANSPUESTA
 
+        # PROMEDIO POR SERVIDOR
+        print("\nPROMEDIO POR SERVIDOR")
+
+        for j in range(columnas_M):
+
+            suma = 0
+
+            for i in range(filas_M):
+                suma += M[i][j]
+
+            promedio = suma / filas_M
+            print("Servidor", j + 1, ":", promedio)
+
+
+        # MATRIZ TRANSPUESTA
         print("\nMATRIZ TRANSPUESTA")
 
         MT = []
@@ -246,8 +224,8 @@ while opcion != 4:
         for fila in MT:
             print(fila)
 
-        # PRODUCTO MATRICIAL
 
+        # PRODUCTO MATRICIAL
         print("\nPRODUCTO M * C")
 
         T = []
@@ -261,7 +239,7 @@ while opcion != 4:
                 suma = 0
 
                 for k in range(columnas_M):
-                    suma = suma + M[i][k] * C[k][j]
+                    suma += M[i][k] * C[k][j]
 
                 fila.append(suma)
 
@@ -270,19 +248,27 @@ while opcion != 4:
         for fila in T:
             print(fila)
 
+
+        # SIMETRIA
+        print("\nSIMETRIA")
+
+        simetrica = True
+
+        for i in range(filas_M):
+            for j in range(columnas_M):
+                if M[i][j] != M[j][i]:
+                    simetrica = False
+
+        if simetrica:
+            print("La matriz es simetrica")
+        else:
+            print("La matriz NO es simetrica")
+
+
         # DETERMINANTE
-
-        a = M[0][0]
-        b = M[0][1]
-        c = M[0][2]
-
-        d = M[1][0]
-        e = M[1][1]
-        f = M[1][2]
-
-        g = M[2][0]
-        h = M[2][1]
-        i = M[2][2]
+        a, b, c = M[0]
+        d, e, f = M[1]
+        g, h, i = M[2]
 
         determinante = (
             a * (e * i - f * h)
@@ -297,12 +283,12 @@ while opcion != 4:
         else:
             print("La matriz NO es invertible")
 
+
     # =====================================================
     # SALIR
     # =====================================================
 
     elif opcion == 4:
-
         print("\nSaliendo del programa...")
 
     # =====================================================
@@ -310,5 +296,4 @@ while opcion != 4:
     # =====================================================
 
     else:
-
         print("\nOpcion incorrecta")
