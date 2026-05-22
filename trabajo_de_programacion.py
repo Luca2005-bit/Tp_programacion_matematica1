@@ -31,7 +31,6 @@ while opcion != 4:
         B = [104, 105, 106, 107, 108]
         C = [102, 105, 109]
 
-        # Funcion logica
         def usuario_critico(usuario):
 
             p = usuario in A
@@ -40,7 +39,6 @@ while opcion != 4:
 
             return (p or q) and r
 
-        # Lista de usuarios sin repetir
         usuarios = []
 
         for x in A:
@@ -55,7 +53,6 @@ while opcion != 4:
             if x not in usuarios:
                 usuarios.append(x)
 
-        # Clasificacion
         criticos = []
         no_criticos = []
 
@@ -81,7 +78,8 @@ while opcion != 4:
 
         import matplotlib.pyplot as plt
 
-        # Funciones
+        # FUNCIONES
+
         def A(x):
             return 40 * x + 200
 
@@ -91,10 +89,12 @@ while opcion != 4:
         def C(x):
             return -2 * x**2 + 80 * x + 100
 
-        # Valores de x
+        # VALORES DE X
+
         x = list(range(0, 51))
 
-        # Listas de y
+        # LISTAS DE Y
+
         yA = []
         yB = []
         yC = []
@@ -104,7 +104,8 @@ while opcion != 4:
             yB.append(B(i))
             yC.append(C(i))
 
-        # Graficar
+        # GRAFICO
+
         plt.plot(x, yA, label="A(x)")
         plt.plot(x, yB, label="B(x)")
         plt.plot(x, yC, label="C(x)")
@@ -118,8 +119,9 @@ while opcion != 4:
 
         plt.show()
 
-        # Evaluar funciones
-        valores = [5, 10, 20, 30, 40]
+        # EVALUAR FUNCIONES
+
+        valores = [0, 5, 10, 15, 20, 25, 30, 40, 50]
 
         for v in valores:
 
@@ -128,7 +130,8 @@ while opcion != 4:
             print("B =", B(v))
             print("C =", C(v))
 
-        # Plan mas barato
+        # PLAN MAS BARATO
+
         def plan_mas_barato(x):
 
             a = A(x)
@@ -146,16 +149,41 @@ while opcion != 4:
             else:
                 return "Plan C"
 
-        print("\nPlan mas barato para x=10:")
-        print(plan_mas_barato(10))
+        print("\nPlan mas economico segun las horas:")
+
+        for i in valores:
+            print("x =", i, "->", plan_mas_barato(i))
+
+        # INTERSECCION
+
+        print("\nInterseccion entre A y B:")
+        print("(5 , 400)")
+
+        # VERTICE
+
+        print("\nVertice de C:")
+        print("(20 , 900)")
+
+        # RAICES
+
+        print("\nRaices de C:")
+        print("x1 = -1.2")
+        print("x2 = 41.2")
+
+        # C NEGATIVA
+
+        print("\nValores donde C es negativa:")
+
+        for i in range(0, 51):
+
+            if C(i) < 0:
+                print("x =", i)
 
     # =====================================================
     # CONSIGNA 3
     # =====================================================
 
     elif opcion == 3:
-
-        # MATRICES
 
         M = [
             [120, 150, 100],
@@ -168,8 +196,6 @@ while opcion != 4:
             [15, 25, 20],
             [40, 10, 30]
         ]
-
-        # DIMENSIONES
 
         print("\nDIMENSIONES")
 
