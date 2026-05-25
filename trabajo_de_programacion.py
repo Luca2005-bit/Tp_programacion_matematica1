@@ -31,6 +31,104 @@ while opcion != 4:
         B = [104, 105, 106, 107, 108]
         C = [102, 105, 109]
 
+        print("\n===================================")
+        print("CONSINGA 1 — CONJUNTOS Y LOGICA")
+        print("===================================")
+
+        # -----------------------------------------
+        # INTERSECCION A ∩ B
+        # -----------------------------------------
+
+        ambas = []
+
+        for x in A:
+
+            if x in B:
+                ambas.append(x)
+
+        print("\nUsuarios que utilizan ambas plataformas:")
+        print(ambas)
+
+        # -----------------------------------------
+        # UNION A U B
+        # -----------------------------------------
+
+        union = []
+
+        for x in A:
+
+            if x not in union:
+                union.append(x)
+
+        for x in B:
+
+            if x not in union:
+                union.append(x)
+
+        print("\nUsuarios que utilizan al menos una plataforma:")
+        print(union)
+
+        # -----------------------------------------
+        # (A U B) - C
+        # -----------------------------------------
+
+        sin_errores = []
+
+        for x in union:
+
+            if x not in C:
+                sin_errores.append(x)
+
+        print("\nUsuarios que utilizan plataforma pero no presentan errores:")
+        print(sin_errores)
+
+        # -----------------------------------------
+        # USUARIOS EXCLUSIVOS
+        # -----------------------------------------
+
+        solo_A = []
+
+        for x in A:
+
+            if x not in B:
+                solo_A.append(x)
+
+        solo_B = []
+
+        for x in B:
+
+            if x not in A:
+                solo_B.append(x)
+
+        exclusivos = []
+
+        for x in solo_A:
+            exclusivos.append(x)
+
+        for x in solo_B:
+            exclusivos.append(x)
+
+        print("\nUsuarios que utilizan exclusivamente una sola plataforma:")
+        print(exclusivos)
+
+        # -----------------------------------------
+        # C - (A U B)
+        # -----------------------------------------
+
+        errores_sin_plataforma = []
+
+        for x in C:
+
+            if x not in union:
+                errores_sin_plataforma.append(x)
+
+        print("\nUsuarios que aparecen en C pero no en A U B:")
+        print(errores_sin_plataforma)
+
+        # =========================================
+        # LOGICA PROPOSICIONAL
+        # =========================================
+
         def usuario_critico(usuario):
 
             p = usuario in A
@@ -39,17 +137,46 @@ while opcion != 4:
 
             return (p or q) and r
 
+        # -----------------------------------------
+        # TABLA DE VERDAD
+        # -----------------------------------------
+
+        print("\n===================================")
+        print("TABLA DE VERDAD")
+        print("===================================")
+
+        print("\np\tq\tr\tresultado")
+
+        valores = [False, True]
+
+        for p in valores:
+
+            for q in valores:
+
+                for r in valores:
+
+                    resultado = (p or q) and r
+
+                    print(p, "\t", q, "\t", r, "\t", resultado)
+
+        # -----------------------------------------
+        # CLASIFICACION DE USUARIOS
+        # -----------------------------------------
+
         usuarios = []
 
         for x in A:
+
             if x not in usuarios:
                 usuarios.append(x)
 
         for x in B:
+
             if x not in usuarios:
                 usuarios.append(x)
 
         for x in C:
+
             if x not in usuarios:
                 usuarios.append(x)
 
@@ -60,8 +187,17 @@ while opcion != 4:
 
             if usuario_critico(u):
                 criticos.append(u)
+
             else:
                 no_criticos.append(u)
+
+        # -----------------------------------------
+        # RESULTADOS
+        # -----------------------------------------
+
+        print("\n===================================")
+        print("CLASIFICACION")
+        print("===================================")
 
         print("\nUsuarios criticos:")
         print(criticos)
@@ -128,13 +264,16 @@ while opcion != 4:
 
             if b < menor:
                 menor = b
+
             if c < menor:
                 menor = c
 
             if menor == a:
                 return "Plan A"
+
             elif menor == b:
                 return "Plan B"
+
             else:
                 return "Plan C"
 
@@ -178,8 +317,8 @@ while opcion != 4:
         else:
             print("No se puede realizar el producto M * C")
 
-
         # PROMEDIO POR FUNCION
+
         print("\nPROMEDIO POR FUNCION")
 
         for i in range(filas_M):
@@ -190,10 +329,11 @@ while opcion != 4:
                 suma += M[i][j]
 
             promedio = suma / columnas_M
+
             print("Funcion", i + 1, ":", promedio)
 
-
         # PROMEDIO POR SERVIDOR
+
         print("\nPROMEDIO POR SERVIDOR")
 
         for j in range(columnas_M):
@@ -204,10 +344,11 @@ while opcion != 4:
                 suma += M[i][j]
 
             promedio = suma / filas_M
+
             print("Servidor", j + 1, ":", promedio)
 
-
         # MATRIZ TRANSPUESTA
+
         print("\nMATRIZ TRANSPUESTA")
 
         MT = []
@@ -224,8 +365,8 @@ while opcion != 4:
         for fila in MT:
             print(fila)
 
-
         # PRODUCTO MATRICIAL
+
         print("\nPRODUCTO M * C")
 
         T = []
@@ -248,24 +389,27 @@ while opcion != 4:
         for fila in T:
             print(fila)
 
-
         # SIMETRIA
+
         print("\nSIMETRIA")
 
         simetrica = True
 
         for i in range(filas_M):
+
             for j in range(columnas_M):
+
                 if M[i][j] != M[j][i]:
                     simetrica = False
 
         if simetrica:
             print("La matriz es simetrica")
+
         else:
             print("La matriz NO es simetrica")
 
-
         # DETERMINANTE
+
         a, b, c = M[0]
         d, e, f = M[1]
         g, h, i = M[2]
@@ -280,6 +424,7 @@ while opcion != 4:
 
         if determinante != 0:
             print("La matriz es invertible")
+
         else:
             print("La matriz NO es invertible")
 
@@ -289,11 +434,14 @@ while opcion != 4:
     # =====================================================
 
     elif opcion == 4:
+
         print("\nSaliendo del programa...")
+
 
     # =====================================================
     # ERROR
     # =====================================================
 
     else:
+
         print("\nOpcion incorrecta")
